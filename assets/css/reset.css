@@ -47,6 +47,9 @@
     select::-ms-expand{opacity:0}
     textarea::-webkit-input-placeholder{color:#dcdcdc;}
     textarea::-moz-placeholder{color:#dcdcdc;}
+    input[type="date"]::-webkit-clear-button,
+    input[type="date"]::-webkit-inner-spin-button {display: none;} 
+    input[type="date"]::-webkit-calendar-picker-indicator { background: transparent;z-index: 1;}
 /************************************ Base Reset Style S ************************************/
 
 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스경로 : 한국전력 > Hamonics
+* @ 파일명    : hamonics.html
+* @ 작성자    : 김은옥 (publisher@to-be.co.kr)
+* @ 작성일    : 2025-07-09
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2025-07-09             김은옥                 최초작성
+*************************************************************************/
+-->
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<title>한국전력 > Hamonics</title>
+<link rel="stylesheet" href="./assets/css/commonui.css">
+<script type="text/javascript" src="./assets/js/commonui.js"></script>
+<script type="text/javascript" src="./assets/js/commonui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="view-wrap" class="hamonics">
+            <header id="header">
+                <i class="icon_logo"></i>
+                <a href="./home.html">
+                    <i class="icon_home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="./realtime.html">
+                    <i class="icon_realtime"></i>
+                    <span>Real Time</span>
+                </a>
+                <a href="./pd.html">
+                    <i class="icon_pd"></i>
+                    <span>PD</span>
+                </a>
+                <a href="./insulation.html">
+                    <i class="icon_insulation"></i>
+                    <span>Insulation</span>
+                </a>
+                <a href="./hamonics.html" class="active">
+                    <i class="icon_hamonics"></i>
+                    <span>Hamonics</span>
+                </a>
+                <a href="#" class="btn-message">
+                    <i class="icon_message"></i>
+                </a>
+                <a href="#" class="btn-setup">
+                    <i class="icon_setup"></i>
+                </a>
+            </header>
+
+            <div id="content-wrap">
+                <main id="content">
+                    <h1>충북본부 광혜원 S/S #3 M.Tr</h1>
+                    <div class="grid-wrap">
+                        <div class="grid">
+                            <div class="top">
+                                <h2>Trend Analysis</h2>
+                                <div class="form-group">
+                                    <label><input type="radio" name="radio01" checked="checked"><span>Current</span></label>
+                                    <label><input type="radio" name="radio01"><span>Capacitance</span></label>
+                                    <label><input type="radio" name="radio01"><span>tanθ</span></label>
+                                    <label><input type="radio" name="radio01"><span>PF</span></label>
+                                    <label><input type="radio" name="radio01"><span>WattLoss</span></label>
+                                </div>
+                            </div>
+                            <div class="top">
+                                <div class="form-group">
+                                    <label><input type="radio" name="radio02" checked="checked"><span>1 Week</span></label>
+                                    <label><input type="radio" name="radio02"><span>1 Month</span></label>
+                                    <label><input type="radio" name="radio02"><span>3 Month</span></label>
+                                    <label><input type="radio" name="radio02"><span>Custom</span></label>
+                                </div>
+                                <input type="date" title="시작일">
+                                <em>~</em>
+                                <input type="date" title="종료일">
+                                <button type="button" class="btn-black"><span>Search</span></button>
+                            </div>
+                            <div class="img">
+                                <img src="./assets/img/hamonics_01.png" alt="">
+                            </div>
+                        </div>
+                        <div class="status-box">
+                            <div class="title">
+                                <h2>Harmonic Monitoring</h2>
+                            </div>
+                            <div class="status">
+                                <strong class="good">Good</strong>
+                                <p>Please Check Phase <em class="a">A</em> <em class="b">B</em> <em class="c">C</em></p>
+                            </div>
+                            <div class="item">
+                                <dl>
+                                    <dt>Phase</dt>
+                                    <dd>C</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Major Component</dt>
+                                    <dd>THD</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Trend</dt>
+                                    <dd class="good">Good</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="top">
+                                <h2>Event list</h2>
+                            </div>
+                            <div class="table">
+                                <table>
+                                    <caption>Caption</caption>
+                                    <colgroup>
+                                        <col style="width:40%">
+                                        <col style="width:20%">
+                                        <col style="width:20%">
+                                        <col style="width:20%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date Time</th>
+                                            <th scope="col">Phase A</th>
+                                            <th scope="col">Phase B</th>
+                                            <th scope="col">Phase C</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-05-13 23:58</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                            <td>0.093</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="top">
+                                <h2>Three-phase armonic<br>Radar Chart</h2>
+                            </div>
+                            <div class="chart-area">Chart Area</div>
+                        </div>
+                        <div class="grid">
+                            <div class="top">
+                                <h2>Harmonic Spectrum Analysis</h2>
+                            </div>
+                            <div class="chart-area">Chart Area</div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
