@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="./assets/css/commonui.css">
 <script type="text/javascript" src="./assets/js/commonui.js"></script>
 <script type="text/javascript" src="./assets/js/commonui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -181,7 +182,9 @@
                         <div class="grid">
                             <div class="top">
                                 <h2>PRPD Pattern Recognition</h2>
-                                <div class="chart-area">Chart Area</div>
+                                <div class="chart-area">
+    				    <canvas id="bar-chart"></canvas>
+				</div>
                             </div>
                         </div>
                     </div>
@@ -190,4 +193,51 @@
         </div>
     </div>
 </body>
+<script>
+const bar_data = {
+  labels: [    '3rd',    '5th',    '7th',    '9th',    '11th',    'THD'  ],
+  datasets: [{
+    label: 'A',
+    data: [65, 59, 90, 81, 56,7],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }, {
+    label: 'B',
+    data: [28, 48, 40, 19, 96,15],
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }, {
+    label: 'C',
+    data: [38, 58, 10, 39, 100, 40],
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }]
+};
+
+const ctx = document.getElementById('bar-chart').getContext('2d');
+const barChart = new Chart(ctx, {
+    type: 'bar',
+    data: bar_data,
+    options: {
+      scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+   }
+});
+</script>
 </html>
