@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="./assets/css/commonui.css">
 <script type="text/javascript" src="./assets/js/commonui.js"></script>
 <script type="text/javascript" src="./assets/js/commonui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -81,8 +82,8 @@
                                 <input type="date" title="종료일">
                                 <button type="button" class="btn-black"><span>Search</span></button>
                             </div>
-                            <div class="img">
-                                <img src="./assets/img/pd_03.png" alt="">
+                            <div class="chart-area">
+                                <canvas id="line-chart" width="750" height="240"></canvas>
                             </div>
                         </div>
                         <div class="status-box">
@@ -211,4 +212,99 @@
         </div>
     </div>
 </body>
+<script>
+const line_data = {
+  labels: [   '2025-07-01', '2025-07-02' , '2025-07-03' , '2025-07-04' , '2025-07-05' , '2025-07-06'   ],
+  datasets: [{
+    label: 'A',
+    data: [65, 59, 90, 81, 56, 7],
+    backgroundColor: '#1076BB',
+    borderColor: '#1076BB',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }, {
+    label: 'B',
+    data: [28, 48, 40, 19, 96,15],
+    backgroundColor: '#FF7500',
+    borderColor: '#FF7500',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }, {
+    label: 'C',
+    data: [38, 58, 10, 39, 100, 40],
+    backgroundColor: '#22AA22',
+    borderColor: '#22AA22',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }, {
+    label: 'A-Trend',
+    data: [15, 29, 30, 41, 56, 66],
+    backgroundColor: '#DD2222',
+    borderColor: '#DD2222',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }, {
+    label: 'B-Trend',
+    data: [28, 48, 60, 79, 26, 45],
+    backgroundColor: '#9866BB',
+    borderColor: '#9866BB',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }, {
+    label: 'C-Trend',
+    data: [38, 58, 10, 39, 100, 40],
+    backgroundColor: '#885544',
+    borderColor: '#885544',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
+  }]
+};
+
+const lineCanvas = document.getElementById('line-chart').getContext('2d');
+const lineChart = new Chart(lineCanvas, {
+    type: 'line',
+    data: line_data,
+    elements: {
+        bar: {
+            borderWidth: 0,
+            color: '#000',
+        }
+    },
+    options: {
+        responsive: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 13,
+                },
+            },
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false,
+                }
+            },
+            y: {
+                grid: {
+                    display: false,
+                }
+            }
+        }
+    }
+});
+</script>
 </html>

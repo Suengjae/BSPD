@@ -183,8 +183,8 @@
                             <div class="top">
                                 <h2>PRPD Pattern Recognition</h2>
                                 <div class="chart-area">
-    				    <canvas id="bar-chart"></canvas>
-				</div>
+                                    <canvas id="bar-chart" width="580" height="280"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -194,50 +194,64 @@
     </div>
 </body>
 <script>
+
 const bar_data = {
-  labels: [    '3rd',    '5th',    '7th',    '9th',    '11th',    'THD'  ],
+  labels: ['3', '5', '7', '9', '11'],
   datasets: [{
     label: 'A',
-    data: [65, 59, 90, 81, 56,7],
+    data: [65, 59, 90, 81, 56],
     fill: true,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: '#8839F0',
   }, {
     label: 'B',
-    data: [28, 48, 40, 19, 96,15],
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    data: [28, 48, 40, 19, 96],
+    fill: true,
+    backgroundColor: '#1DB198',
   }, {
     label: 'C',
-    data: [38, 58, 10, 39, 100, 40],
+    data: [38, 58, 10, 39, 100],
     fill: true,
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#D257B3',
   }]
 };
 
-const ctx = document.getElementById('bar-chart').getContext('2d');
-const barChart = new Chart(ctx, {
+const barCanvas = document.getElementById('bar-chart').getContext('2d');
+const barChart = new Chart(barCanvas, {
     type: 'bar',
     data: bar_data,
     options: {
-      scales: {
-      y: {
-        beginAtZero: true
-      }
+        elements: {
+            bar: {
+                borderWidth: 0,
+                color: '#000',
+            }
+        },
+        responsive: false,
+        barThickness: 20,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 13,
+                },
+            },
+            bar: {
+                color: '#1D1D1D',
+            },
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false,
+                }
+            },
+            y: {
+                grid: {
+                    display: false,
+                }
+            }
+        },
     }
-   }
 });
 </script>
 </html>

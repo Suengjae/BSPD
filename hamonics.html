@@ -86,8 +86,8 @@
                                 <button type="button" class="btn-black"><span>Search</span></button>
                             </div>
                             <div class="chart-area">
-    				    <canvas id="line-chart" width="850" height="280"></canvas>
-		            </div>
+                                <canvas id="line-chart" width="750" height="240"></canvas>
+                            </div>
                         </div>
                         <div class="status-box">
                             <div class="title">
@@ -179,16 +179,16 @@
                                 <h2>Three-phase armonic<br>Radar Chart</h2>
                             </div>
                             <div class="chart-area">
-				<canvas id="radar-chart"></canvas>
-			    </div>
+                                <canvas id="radar-chart" width="300" height="290"></canvas>
+                            </div>
                         </div>
                         <div class="grid">
                             <div class="top">
                                 <h2>Harmonic Spectrum Analysis</h2>
                             </div>
                             <div class="chart-area">
-				<canvas id="bar-chart" width="840" height="320"></canvas>
-			    </div>
+                                <canvas id="bar-chart" width="580" height="280"></canvas>
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -199,37 +199,46 @@
 <script>
 
 const radar_data = {
-  labels: [ '3rd',    '5th',    '7th',    '9th',    '11th'  ],
+  labels: [ '01',    '02',    '03',    '04',    '05'  ],
   datasets: [{
-    label: 'A',
+    label: 'Phase A',
     data: [65, 59, 90, 81, 56],
     fill: true,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: 'rgba(136, 57, 240, 0.3)',
+    borderColor: 'rgb(136, 57, 240)',
+    pointBackgroundColor: 'rgb(136, 57, 240)',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 3,
+    pointBorderWidth: 0,
   }, {
-    label: 'B',
+    label: 'Phase B',
     data: [28, 48, 40, 19, 96],
     fill: true,
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
+    backgroundColor: 'rgba(29, 177, 152, 0.3)',
+    borderColor: 'rgb(29, 177, 152)',
+    pointBackgroundColor: 'rgb(29, 177, 152)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    pointHoverBorderColor: 'rgb(29, 177, 152)',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 3,
+    pointBorderWidth: 0,
   }, {
-    label: 'C',
+    label: 'Phase C',
     data: [38, 58, 10, 39, 100],
     fill: true,
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
+    backgroundColor: 'rgba(210, 87, 179, 0.3)',
+    borderColor: 'rgb(210, 87, 179)',
+    pointBackgroundColor: 'rgb(210, 87, 179)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    pointHoverBorderColor: 'rgb(210, 87, 179)',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 3,
+    pointBorderWidth: 0,
   }]
 };
 
@@ -237,49 +246,52 @@ const radarCanvas = document.getElementById('radar-chart').getContext('2d');
 const radarChart = new Chart(radarCanvas, {
     type: 'radar',
     data: radar_data,
-    options: {responsive: false,
-      elements: {
-        line: {
-          borderWidth: 3
-       }
-     }
-   }
+    options: {
+        responsive: false,
+        elements: {
+            line: {
+                borderWidth: 3
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 13,
+                },
+            },
+        },
+        scale: {
+            pointLabels: {
+                display: false,
+            },
+            ticks: {
+                display: false,
+            },
+        },
+    }
 });
 
 
 
 
 const bar_data = {
-  labels: [    '3rd',    '5th',    '7th',    '9th',    '11th',    'THD'  ],
+  labels: ['3', '5', '7', '9', '11'],
   datasets: [{
     label: 'A',
-    data: [65, 59, 90, 81, 56,7],
+    data: [65, 59, 90, 81, 56],
     fill: true,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: '#8839F0',
   }, {
     label: 'B',
-    data: [28, 48, 40, 19, 96,15],
+    data: [28, 48, 40, 19, 96],
     fill: true,
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#1DB198',
   }, {
     label: 'C',
-    data: [38, 58, 10, 39, 100, 40],
+    data: [38, 58, 10, 39, 100],
     fill: true,
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#D257B3',
   }]
 };
 
@@ -287,13 +299,39 @@ const barCanvas = document.getElementById('bar-chart').getContext('2d');
 const barChart = new Chart(barCanvas, {
     type: 'bar',
     data: bar_data,
-    options: { responsive: false,
-      scales: {
-      y: {
-        beginAtZero: true
-      }
+    options: {
+        elements: {
+            bar: {
+                borderWidth: 0,
+                color: '#000',
+            }
+        },
+        responsive: false,
+        barThickness: 20,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 13,
+                },
+            },
+            bar: {
+                color: '#1D1D1D',
+            },
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false,
+                }
+            },
+            y: {
+                grid: {
+                    display: false,
+                }
+            }
+        },
     }
-   }
 });
 
 
@@ -303,55 +341,57 @@ const line_data = {
   datasets: [{
     label: 'A',
     data: [65, 59, 90, 81, 56, 7],
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: '#1076BB',
+    borderColor: '#1076BB',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }, {
     label: 'B',
     data: [28, 48, 40, 19, 96,15],
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#FF7500',
+    borderColor: '#FF7500',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }, {
     label: 'C',
     data: [38, 58, 10, 39, 100, 40],
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#22AA22',
+    borderColor: '#22AA22',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }, {
     label: 'A-Trend',
     data: [15, 29, 30, 41, 56, 66],
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: '#DD2222',
+    borderColor: '#DD2222',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }, {
     label: 'B-Trend',
     data: [28, 48, 60, 79, 26, 45],
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#9866BB',
+    borderColor: '#9866BB',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }, {
     label: 'C-Trend',
     data: [38, 58, 10, 39, 100, 40],
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
-    pointBackgroundColor: 'rgb(54, 162, 235)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    backgroundColor: '#885544',
+    borderColor: '#885544',
+    borderWidth: 1,
+    tension: 0.1,
+    pointRadius: 0,
+    pointBorderWidth: 0,
   }]
 };
 
@@ -359,14 +399,35 @@ const lineCanvas = document.getElementById('line-chart').getContext('2d');
 const lineChart = new Chart(lineCanvas, {
     type: 'line',
     data: line_data,
+    elements: {
+        bar: {
+            borderWidth: 0,
+            color: '#000',
+        }
+    },
     options: {
-responsive: false,
-      scales: {
-      y: {
-        beginAtZero: true
-      }
+        responsive: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 13,
+                },
+            },
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false,
+                }
+            },
+            y: {
+                grid: {
+                    display: false,
+                }
+            }
+        }
     }
-   }
 });
 </script>
 </html>

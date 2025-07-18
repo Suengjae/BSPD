@@ -176,6 +176,11 @@
     /* insulation */
     .insulation .grid-wrap .top + .img{margin-top:0.15rem;text-align:center;}
     .insulation .status-box .item > *:nth-child(2){width:300%;}
+
+    /* chart canvas */
+    #bar-chart{margin:0.4rem auto 0 auto;}
+    #line-chart{margin:0.3rem auto 0 auto;}
+    #radar-chart{margin:0 auto 0 auto;}
 /************************************ Sample S ************************************/
 
 
