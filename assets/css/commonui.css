@@ -21,14 +21,15 @@
 
 /************************************ Layout Style S ************************************/
     html{font-size:100px;}
-    body{color:#1d1d1d;background:#FFFFFF;box-sizing:border-box;}
+    body{color:#1d1d1d;background:#F4F4F4;box-sizing:border-box;}
+    .bg-white{background:#fff;}
     a,button{position:relative;vertical-align:middle;/*border:solid 0.02rem transparent;*/box-sizing:border-box;}
     /**:focus{border-style:dashed ! important;border-color:#369 ! important;border-width:0.02rem;}*/
     /* SkipMenu */
     #skip-menu a{display:block;font-size:0;border:none;background:#3bbcd9;}
     #skip-menu a:focus span{display:block;padding:0.1rem;color:#fff;font-size:0.18rem;text-align:center;}
     /* Base */
-    #view-wrap{position:relative;margin:auto;padding:0.2rem;height:100vh;background:#F4F4F4;box-sizing:border-box;}
+    #view-wrap{position:relative;margin:auto;padding:0.2rem;width:19.2rem;height:100vh;box-sizing:border-box;}
     #header{position:absolute;left:0.2rem;top:0.2rem;padding:0.2rem 0.04rem;width:0.88rem;height:9rem;text-align:center;border-radius:0.12rem;background:#1D1D1D;box-sizing:border-box;}
     #header .icon_logo{margin-bottom:0.24rem;}
     #header a{display:block;padding:0.1rem 0;width:0.8rem;height:0.72rem;border-radius:0.08rem;opacity:0.5;}
@@ -131,10 +132,15 @@
     .grid-wrap .bar-chart li .tit{position:absolute;left:0;top:0;line-height:0.2rem;font-weight:bold;}
     .grid-wrap .bar-chart li .unit{line-height:0.2rem;text-align:right;}
     .grid-wrap .bar-chart li .unit em{margin:0 0.03rem 0 0.16rem;}
-    .grid-wrap .bar-chart li .chart{position:relative;margin-top:0.24rem;height:0.12rem;border-radius:0.06rem;background:#FFAB00;}
+    .grid-wrap .bar-chart li .chart{position:relative;margin-top:0.24rem;padding-top:0.03rem;height:0.12rem;background: linear-gradient(to right,#41a450 0%,#0e7cde 75%,#ed1c24 75%,#ed1c24 75%);box-sizing:border-box;}
     .grid-wrap .bar-chart li .chart span{position:absolute;top:-0.26rem;width:0.2rem;line-height:0.2rem;text-align:center;font-weight:bold;}
     .grid-wrap .bar-chart li .chart span:before{display:block;content:'';position:absolute;left:50%;bottom:-0.2rem;width:0.01rem;height:0.16rem;background:#1D1D1D;transform:translateX(-50%);}
-    .grid-wrap .bar-chart li .chart .bar{height:0.12rem;border-radius:0.06rem 0 0 0.06rem;background:#41A450;}
+    .grid-wrap .bar-chart li .chart .bar{position:relative;margin:auto;padding:0 1.3rem;width:5.85rem;border-left:solid 0.01rem #fff;border-right:solid 0.01rem #fff;box-sizing:border-box;}
+    .grid-wrap .bar-chart li .chart .bar:before{display:block;content:'';position:absolute;left:0.65rem;top:0;width:0.01rem;height:0.06rem;background:#fff;}
+    .grid-wrap .bar-chart li .chart .bar:after{display:block;content:'';position:absolute;right:0.65rem;top:0;width:0.01rem;height:0.06rem;background:#fff;}
+    .grid-wrap .bar-chart li .chart .bar em{display:flex;padding:0 0.65rem;border-left:solid 0.01rem #fff;border-right:solid 0.01rem #fff;box-sizing:border-box;}
+    .grid-wrap .bar-chart li .chart .bar em:before{display:block;content:'';width:100%;height:0.06rem;border-left:solid 0.01rem #fff;border-right:solid 0.01rem #fff;box-sizing:border-box;}
+    .grid-wrap .bar-chart li .chart .bar em:after{display:block;content:'';margin-left:0.65rem;width:100%;height:0.06rem;border-left:solid 0.01rem #fff;border-right:solid 0.01rem #fff;box-sizing:border-box;}
     .grid-wrap .desc{margin-top:0.08rem;}
     .grid-wrap .desc > *{display:inline-block;position:relative;;margin-right:0.2rem;line-height:0.24rem;}
     .grid-wrap .desc > *:nth-child(1){padding-right:0.2rem;}
@@ -154,7 +160,7 @@
     .grid-wrap .status-box .status strong{line-height:1.12rem;font-size:0.8rem;}
     .grid-wrap .status-box .item dt{color:#777;}
     .grid-wrap .status-box .item dd{line-height:0.45rem;font-size:0.32rem;}
-    .grid-wrap .table{margin-top:0.24rem;border:solid 0.01rem #EFEFEF;border-radius:0.12rem;overflow:hidden;}
+    .grid-wrap .table{position:relative;margin-top:0.24rem;border:solid 0.01rem #EFEFEF;border-radius:0.12rem;overflow:hidden;}
     .grid-wrap table tr > *{height:0.39rem;text-align:center;border-bottom:solid 0.01rem #EFEFEF;}
     .grid-wrap table tr > th{font-size:0.12rem;background:#F4F4F4;}
     .grid-wrap table tr i{width:0.24rem;height:0.24rem;}
@@ -172,6 +178,12 @@
 
     /* PD */
     .pd .grid-wrap .top + .img{margin-top:0.15rem;text-align:center;}
+    .grid-wrap .table .top{display:block;position:absolute;left:0;top:0;width:100%;}
+    .grid-wrap .table .bottom{margin-top:0.4rem;height:2.38rem;overflow:hidden;overflow-y:auto;}
+    .grid-wrap .table .bottom::-webkit-scrollbar{width:0.06rem;background-color:#f3f4f6;}
+    .grid-wrap .table .bottom::-webkit-scrollbar-thumb{background-color:#9ca3af;border-radius:0.04rem;}
+    .grid-wrap .table .bottom::-webkit-scrollbar-thumb:hover{background-color:#6b7280;}
+    .grid-wrap .table .bottom::-webkit-scrollbar-track{background-color:#fff;border-radius:0.04rem;}
 
     /* insulation */
     .insulation .grid-wrap .top + .img{margin-top:0.15rem;text-align:center;}
@@ -186,20 +198,20 @@
 
 /************************************ Responsive Style - PC S ************************************/
     @media screen and (min-width: 6400px){
-        html{font-size:120px;}
+        html{font-size:100px;}
     }
 /************************************ Responsive Style - PC E ************************************/
 
 
 /************************************ Responsive Style - PC S ************************************/
     @media screen and (min-width: 2300px){
-        html{font-size:115px;}
+        html{font-size:100px;}
     }
 /************************************ Responsive Style - PC E ************************************/
 
 
 /************************************ Responsive Style - PC S ************************************/
     @media screen and (min-width: 2200px){
-        html{font-size:110px;}
+        html{font-size:100px;}
     }
 /************************************ Responsive Style - PC E ************************************/
